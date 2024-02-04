@@ -3,18 +3,17 @@
     <title>Photo App</title>
   </head>
   <body>
-    <h1><a href="/">사진 목록 페이지</a></h1>
-    <h1><a href="{% url 'photo_post' %}">사진 등록 하기</a></h1>
+    <h1><a href="{% url 'photo_detail' pk=photo.pk %}">사진 상세 페이지</a></h1>
+    <h2><a href="{% url 'photo_list' %}">사진 목록 페이지</a></h1>
     <section>
-      {% for photo in photos %}
       <div>
         <h2>
-          <a href="{% url 'photo_detail' pk=photo.pk %}">{{ photo.title }}</a>
+          {{ photo.title }}
         </h2>
         <img src ="{{ photo.image }}" alt="{{ photo.title }}" width="300"/>
         <p>{{ photo.author }}, {{ photo.price }}원</p>
+        <p>{{ photo.description }}, {{ photo.price }}원</p>
       </div>
-      {% endfor %}
     </section>
   </body>
 </html>
